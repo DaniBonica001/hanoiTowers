@@ -12,11 +12,7 @@ public class Main {
 	public final static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 	public static int origin;
 	public static int middle=0;
-	public static int destiny=0;
-	
-	//Son 3 torres
-	//Hanoi towers = 2^nd-1 donde nd es el número de discos
-	//pre: d!=null,nd!=0                   A              C                B   
+	public static int destiny=0;	
 	
 	/*
 	*Código basado en la información recolectada de la página: Runstone academy. 
@@ -26,6 +22,9 @@ public class Main {
 	*Autores del archivo pdf: Amaia Gil Lerchundi, Ester Landa Cillero, Oihane Ruiz Díaz y Josué Tonelli Cueto.
 	*Link: https://tonellicueto.xyz/pdf/torres_hanoi.pdf
 	*/
+	//Son 3 torres
+	//Hanoi towers = 2^nd-1 donde nd es el número de discos
+	//pre: d!=null,nd!=0                   A              C                B   
 	public void hanoiTowers(int d,String origen,String destino,String intermedio) {
 				
 		if (d==1) {
@@ -38,11 +37,18 @@ public class Main {
 		
 	}//End hanoiTowers	
 	
+	
+	
+	/*
+	*Código basado en la información recolectada de la página: Runstone academy. 
+	*Link: https://runestone.academy/runestone/static/pythoned/Recursion/LasTorresDeHanoi.html
+	*
+	*Código basado en la información recolectada de un archivo pdf sobre las Torres de Hanoi.
+	*Autores del archivo pdf: Amaia Gil Lerchundi, Ester Landa Cillero, Oihane Ruiz Díaz y Josué Tonelli Cueto.
+	*Link: https://tonellicueto.xyz/pdf/torres_hanoi.pdf
+	*/
 	public void hanoiDisk(String desde,String hacia,int d) {
-		//System.out.println("middle: "+middle+", destiny: "+destiny);
-			
 		if (desde.equals("A")) {
-			//System.out.println("origin dentro del metodo: "+origin);
 			origin-=1;			
 		}
 		if (desde.equals("B")) {
@@ -68,9 +74,8 @@ public class Main {
 			destiny+=1;			
 		}	
 		
-		//System.out.println("mover disco de "+desde+" a "+hacia);
 		System.out.println(origin+" "+middle+" "+destiny);
-	}
+	}//End hanoiDisk
 	
 	public static void main(String[] args) throws IOException {		
 		Main m = new Main();
@@ -84,7 +89,6 @@ public class Main {
 				System.out.println(disks+" 0 0");
 				destiny=0;
 				origin=discs;				
-				//System.out.println("discs y origin:"+origin);
 				m.hanoiTowers(discs,"A","C","B");				
 			}
 			disks = br.readLine();
